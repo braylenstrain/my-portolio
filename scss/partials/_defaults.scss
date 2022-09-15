@@ -1,0 +1,59 @@
+@use 'variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+section,
+footer,
+header,
+main,
+nav {
+  display: block;
+}
+
+body {
+  font-family: 'Oswald', sans-serif;
+  font-size: 100%;
+  color: $color-text;
+  background-color: $bg;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: $color-headings;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  outline: none;
+}
+
+.container,
+.container-fluid {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  max-width: 1140px;
+}
