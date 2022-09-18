@@ -1,0 +1,82 @@
+@use '../utils' as *;
+
+.theme-toggle {
+  background-color: #ff6f3c;
+  position: fixed;
+  right: 0;
+  top: 30vh;
+  z-index: 50;
+  transition: 0.4s;
+  transform: translateX(100%);
+  max-width: rem(185);
+  padding: rem(15) rem(13);
+  text-align: center;
+  border-bottom-left-radius: rem(25);
+
+  &__header {
+    margin-bottom: rem(18);
+    line-height: 1;
+  }
+
+  &__btn-group {
+    box-shadow: rem(1) rem(4) rem(18) rgb(0 0 0);
+    border-radius: rem(33);
+    display: flex;
+    overflow: hidden;
+
+    .theme-toggle__switch-btn {
+      border: none;
+      width: 50%;
+      font-size: rem(11);
+      font-weight: 700;
+      height: rem(42);
+      padding: 1rem;
+      letter-spacing: rem(1.4);
+      text-transform: uppercase;
+
+      &.active {
+        background-color: #155263;
+        color: white;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__tab {
+    position: absolute;
+    top: 0;
+    transform: translateX(-100%);
+    width: rem(30);
+    height: rem(50);
+    border: none;
+    background-color: #ff6f3c;
+    color: white;
+    border-bottom-left-radius: rem(10);
+    border-top-left-radius: rem(10);
+    left: rem(5);
+    font-size: rem(19);
+
+    i {
+      transition: 0.4s;
+      pointer-events: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &.open {
+    transform: translateX(0);
+
+    .theme-toggle__tab {
+      i {
+        transform: scaleX(-1);
+      }
+    }
+  }
+}
+

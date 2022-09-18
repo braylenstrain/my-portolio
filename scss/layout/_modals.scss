@@ -1,0 +1,49 @@
+@use '../utils' as *;
+
+.modal--full {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  transition: 0.3s ease-in;
+  background-color: var(--bg);
+  visibility: hidden;
+}
+
+.modal--visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal__header {
+  display: flex;
+  padding-bottom: 1rem;
+  justify-content: space-between;
+
+  .fa-times {
+    font-size: 1.5rem;
+
+    &:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+  }
+}
+
+.modal__body {
+  display: flex;
+}
+
+.modal__headshot {
+  width: rem(50);
+}
+
+[data-animation=zoomInOut].modal--full {
+  transform: scale(0.2);
+}
+
+[data-animation=zoomInOut].modal--full.modal--visible {
+  transform: none;
+}

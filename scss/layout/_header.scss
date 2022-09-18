@@ -2,7 +2,7 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -13,8 +13,15 @@
   background: linear-gradient(170deg, #ff6f3c, #ff9a3c, #ffc93c);
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-style: italic;
+  padding-right: rem(4);
 }
 
 nav ul {
   display: flex;
+  gap: rem(20);
+}
+
+[data-open=about] {
+  cursor: pointer;
 }

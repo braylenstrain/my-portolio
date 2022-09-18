@@ -6,30 +6,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
   <title>Braylen's Portfolio</title>
+
   <link rel="stylesheet" href="/scss/styles.css">
+  <script src="https://kit.fontawesome.com/c59cb75f0d.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <header class="header">
+  <!-- Theme Toggle -->
+  <div class="theme-toggle open">
+    <div class="theme-toggle__header">Change Theme</div>
+
+    <div class="theme-toggle__btn-group">
+      <button class="theme-toggle__switch-btn active" data-toggle="dark" tabindex="-1">Dark</button>
+      <button class="theme-toggle__switch-btn" data-toggle="light" tabindex="-1">Light</button>
+    </div>
+
+    <button class="theme-toggle__tab">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+  </div>
+
+  <!-- Page Header -->
+  <header class="header container">
     <span class="header__logo">Braylen's Portfolio</span>
 
     <nav>
       <ul>
-        <li>About Me</li>
-        <li>LinkedIn</li>
-        <li>GitHub</li>
+        <li data-open="about" tabindex="0">About Me</li>
+        <li><a href="https://www.linkedin.com/in/braylen-strain-506334247/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/braylenstrain" target="_blank">GitHub</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- Page Body -->
   <main>
 
   </main>
 
+  <!-- Modules -->
+  <div id="about" class="modal--full" data-animation="zoomInOut">
+    <header class="modal__header">
+      <h3>ABOUT ME</h3>
+      <i class="fas fa-times" data-close></i>
+    </header>
+
+    <div class="modal__body">
+      <div class="modal__headshot">
+        <img src="/images/croppedface.jpg" alt="Headshot of Braylen Strain">
+      </div>
+
+      <div class="modal__text">
+        <h2>Braylen Strain</h2>
+
+        <p>A:SLDJK</p>
+        <p>:LSDJFK</p>
+
+        <div>
+          <div>Email Me:</div>
+          <a href="mailto:braylenstrain22@gmail.com">braylenstrain22@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="/js/main.js"></script>
 </body>
 </html>
