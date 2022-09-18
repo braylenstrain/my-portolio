@@ -1,0 +1,20 @@
+@use '../utils' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  font-size: 3rem;
+  font-weight: 700;
+  background-color: #ff9a3c;
+  background: linear-gradient(170deg, #ff6f3c, #ff9a3c, #ffc93c);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+nav ul {
+  display: flex;
+}

@@ -1,3 +1,13 @@
+:root {
+  --bg:#fff;
+  --bg-panel:#fff;
+  --color-headings:#161c2d;
+  --color-text-opacity:rgba(22,28,45,0.7);
+  --color-text:#161c2d;
+  --color-text-base:#161c2d;
+  --border:#383153;
+}
+
 *,
 *::before,
 *::after {
@@ -17,8 +27,8 @@ nav {
 body {
   font-family: "Oswald", sans-serif;
   font-size: 100%;
-  color: #161c2d;
-  background-color: #fff;
+  color: var(--color-text);
+  background-color: var(--bg);
 }
 
 a,
@@ -32,7 +42,7 @@ h1,
 h2,
 h3,
 h4 {
-  color: #161c2d;
+  color: var(--color-headings);
 }
 
 ul {
@@ -54,4 +64,24 @@ button {
 
 .container {
   max-width: 1140px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  font-size: 3rem;
+  font-weight: 700;
+  background-color: #ff9a3c;
+  background: linear-gradient(170deg, #ff6f3c, #ff9a3c, #ffc93c);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+nav ul {
+  display: flex;
 }/*# sourceMappingURL=styles.css.map */

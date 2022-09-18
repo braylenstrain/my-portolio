@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use '../utils' as *;
 
 *,
 *::before,
@@ -19,8 +19,8 @@ nav {
 body {
   font-family: 'Oswald', sans-serif;
   font-size: 100%;
-  color: $color-text;
-  background-color: $bg;
+  color: var(--color-text);
+  background-color: var(--bg);
 }
 
 a,
@@ -34,7 +34,7 @@ h1,
 h2,
 h3,
 h4 {
-  color: $color-headings;
+  color: var(--color-headings);
 }
 
 ul {
