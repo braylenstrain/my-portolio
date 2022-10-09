@@ -2,12 +2,12 @@
 
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
 .header__logo {
-  font-size: 3rem;
+  font-size: 1.5rem;
   font-weight: 700;
   background-color: #ff9a3c;
   background: linear-gradient(170deg, #ff6f3c, #ff9a3c, #ffc93c);
@@ -20,6 +20,11 @@
 nav ul {
   display: flex;
   gap: rem(20);
+  color: var(--color-text);
+
+  li:hover {
+    transform: scale(1.1);
+  }
 }
 
 [data-open=about] {

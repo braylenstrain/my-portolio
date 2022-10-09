@@ -1,0 +1,41 @@
+@use '../utils' as *;
+
+.hero {
+  &__content {
+    text-align: center;
+    padding:5.5rem 0;
+  }
+
+  &__code-icon {
+    background-color: #ff9a3c;
+    background: linear-gradient(170deg, #ff6f3c, #ff9a3c, #ffc93c);
+    padding: 1.25rem 1.5rem;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    color: #161c2d;
+
+    .fa-code {
+      font-size: 2rem;
+      display: inline-block;
+      line-height: 1.5;
+    }
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ff6f3c;
+    border-radius: 50rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: rem(0.5);
+    transition: 0.4s;
+    height: rem(65);
+    padding-left: rem(30);
+    padding-right: rem(30);
+    box-shadow: 0 rem(32) rem(54) rgba(3, 3, 3, 0.12);
+    cursor: pointer;
+  }
+}

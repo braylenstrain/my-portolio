@@ -51,14 +51,32 @@ img {
 }
 
 .container,
-.container-fluid {
+.container--fluid {
   width: 100%;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .container {
   max-width: 1140px;
+}
+
+.title--lg {
+  font-size: 5rem;
+  letter-spacing: rem(-2.5);
+  line-height: 1.05;
+}
+
+.title--md {
+  font-size: 3rem;
+  letter-spacing: rem(-2);
+}
+
+.sub-title {
+  font-size: 1.3125rem;
+  line-height: 1.5;
+  padding-top: 1.25rem;
+  padding-bottom: 1.875rem;
 }

@@ -16,22 +16,8 @@
 </head>
 
 <body>
-  <!-- Theme Toggle -->
-  <div class="theme-toggle open">
-    <div class="theme-toggle__header">Change Theme</div>
-
-    <div class="theme-toggle__btn-group">
-      <button class="theme-toggle__switch-btn active" data-toggle="dark" tabindex="-1">Dark</button>
-      <button class="theme-toggle__switch-btn" data-toggle="light" tabindex="-1">Light</button>
-    </div>
-
-    <button class="theme-toggle__tab">
-      <i class="fas fa-chevron-left"></i>
-    </button>
-  </div>
-
   <!-- Page Header -->
-  <header class="header container">
+  <header class="header container--fluid">
     <span class="header__logo">Braylen's Portfolio</span>
 
     <nav>
@@ -45,7 +31,18 @@
 
   <!-- Page Body -->
   <main>
+    <section class="hero container">
+      <div class="hero__content">
+        <div class="hero__code-icon">
+          <i class="fas fa-code"></i>
+        </div>
 
+        <h1 class="title--lg">Welcome!</h2>
+        <div class="sub-title">Click on the cards below to check out the projects that I've worked on.</div>
+
+        <span class="hero__button" data-open="About Me">Learn More About Me</span>
+      </div>
+    </section>
   </main>
 
   <!-- Modules -->
@@ -72,6 +69,20 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Theme Toggle -->
+  <div class="theme-toggle open">
+    <div class="theme-toggle__header">Change Theme</div>
+
+    <div class="theme-toggle__btn-group">
+      <button class="theme-toggle__switch-btn active" data-toggle="dark" tabindex="-1">Dark</button>
+      <button class="theme-toggle__switch-btn" data-toggle="light" tabindex="-1">Light</button>
+    </div>
+
+    <button class="theme-toggle__tab">
+      <i class="fas fa-chevron-left"></i>
+    </button>
   </div>
   <script src="/js/main.js"></script>
 </body>
