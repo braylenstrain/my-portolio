@@ -31,6 +31,7 @@
 
   <!-- Page Body -->
   <main>
+    <!-- Hero Section -->
     <section class="hero container">
       <div class="hero__content">
         <div class="hero__code-icon">
@@ -43,47 +44,65 @@
         <span class="hero__button" data-open="About Me">Learn More About Me</span>
       </div>
     </section>
-  </main>
 
-  <!-- Modules -->
-  <div id="about" class="modal--full" data-animation="zoomInOut">
-    <header class="modal__header">
-      <h3>ABOUT ME</h3>
-      <i class="fas fa-times" data-close></i>
-    </header>
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+      <div class="container portfolio__search-wrapper">
+        <label for="search">
+          <input id="search" class="portfolio__search-input" type="search" placeholder="Search...">
+          <i class="fas fa-search"></i>
+        </label>
 
-    <div class="modal__body">
-      <div class="modal__headshot">
-        <img src="/images/croppedface.jpg" alt="Headshot of Braylen Strain">
+        <ul class="portfolio__filter-nav">
+          <li class="filter-link active">All</li>
+          <li class="filter-link">HTML/CSS</li>
+          <li class="filter-link">JavaScript</li>
+          <li class="filter-link">React</li>
+          <li class="filter-link">Java</li>
+        </ul>
       </div>
+    </section>
 
-      <div class="modal__text">
-        <h2>Braylen Strain</h2>
+    <!-- Modules -->
+    <div id="about" class="modal--full" data-animation="zoomInOut">
+      <header class="modal__header">
+        <h3>ABOUT ME</h3>
+        <i class="fas fa-times" data-close></i>
+      </header>
 
-        <p>A:SLDJK</p>
-        <p>:LSDJFK</p>
+      <div class="modal__body">
+        <div class="modal__headshot">
+          <img src="/images/croppedface.jpg" alt="Headshot of Braylen Strain">
+        </div>
 
-        <div>
-          <div>Email Me:</div>
-          <a href="mailto:braylenstrain22@gmail.com">braylenstrain22@gmail.com</a>
+        <div class="modal__text">
+          <h2>Braylen Strain</h2>
+
+          <p>A:SLDJK</p>
+          <p>:LSDJFK</p>
+
+          <div>
+            <div>Email Me:</div>
+            <a href="mailto:braylenstrain22@gmail.com">braylenstrain22@gmail.com</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Theme Toggle -->
-  <div class="theme-toggle open">
-    <div class="theme-toggle__header">Change Theme</div>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle open">
+      <div class="theme-toggle__header">Change Theme</div>
 
-    <div class="theme-toggle__btn-group">
-      <button class="theme-toggle__switch-btn active" data-toggle="dark" tabindex="-1">Dark</button>
-      <button class="theme-toggle__switch-btn" data-toggle="light" tabindex="-1">Light</button>
+      <div class="theme-toggle__btn-group">
+        <button class="theme-toggle__switch-btn active" data-toggle="dark" tabindex="-1">Dark</button>
+        <button class="theme-toggle__switch-btn" data-toggle="light" tabindex="-1">Light</button>
+      </div>
+
+      <button class="theme-toggle__tab">
+        <i class="fas fa-chevron-left"></i>
+      </button>
     </div>
-
-    <button class="theme-toggle__tab">
-      <i class="fas fa-chevron-left"></i>
-    </button>
-  </div>
+  </main>
   <script src="/js/main.js"></script>
 </body>
 </html>

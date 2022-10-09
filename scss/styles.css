@@ -277,4 +277,44 @@ nav ul li:hover {
   padding-right: 1.875rem;
   box-shadow: 0 2rem 3.375rem rgba(3, 3, 3, 0.12);
   cursor: pointer;
+}
+
+.portfolio label {
+  align-items: center;
+  position: relative;
+  display: inline-flex;
+}
+.portfolio label .fa-search {
+  position: absolute;
+  right: 0.625rem;
+  color: #000;
+}
+.portfolio__search-input {
+  padding: 0.75rem 1.5rem;
+  background-color: #f1f3f5;
+  border: 0.0625rem solid #f1f3f5;
+  border-radius: 50rem;
+}
+.portfolio__search-input:focus {
+  outline: none;
+  border-color: #4dabf7;
+  box-shadow: inset 0 0.0625rem 0.0625rem rgba(0, 0, 0, 0.0125), 0 0 0.5rem rgba(34, 139, 230, 0.5);
+}
+.portfolio__filter-nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+}
+.portfolio__filter-nav .filter-link {
+  padding: 0 1rem;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  letter-spacing: 0.0625rem;
+  font-weight: 700;
+}
+.portfolio__filter-nav .filter-link:hover {
+  cursor: pointer;
+}
+.portfolio__filter-nav .filter-link.active {
+  color: #495fef;
 }/*# sourceMappingURL=styles.css.map */
