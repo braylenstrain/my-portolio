@@ -47,19 +47,23 @@
 
     <!-- Portfolio Section -->
     <section class="portfolio">
-      <div class="container portfolio__search-wrapper">
+      <div class="portfolio__search-wrapper container">
         <label for="search">
           <input id="search" class="portfolio__search-input" type="search" placeholder="Search...">
           <i class="fas fa-search"></i>
         </label>
 
         <ul class="portfolio__filter-nav">
-          <li class="filter-link active">All</li>
-          <li class="filter-link">HTML/CSS</li>
-          <li class="filter-link">JavaScript</li>
-          <li class="filter-link">React</li>
-          <li class="filter-link">Java</li>
+          <li class="filter-link active" data-filter="all">All</li>
+          <li class="filter-link" data-filter="html/css">HTML/CSS</li>
+          <li class="filter-link" data-filter="javascript">JavaScript</li>
+          <li class="filter-link" data-filter="react">React</li>
+          <li class="filter-link" data-filter="java">Java</li>
         </ul>
+      </div>
+
+      <div id="cardWrapper" class="portfolio__grid-wrapper">
+        <!-- Cards added in through JavaScript -->
       </div>
     </section>
 

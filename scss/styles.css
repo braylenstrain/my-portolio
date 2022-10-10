@@ -104,7 +104,7 @@ img {
   position: fixed;
   right: 0;
   top: 30vh;
-  z-index: 50;
+  z-index: 3;
   transition: 0.4s;
   transform: translateX(100%);
   max-width: 11.5625rem;
@@ -196,6 +196,11 @@ nav ul li:hover {
 
 [data-open=about] {
   cursor: pointer;
+}
+
+.modal--full,
+.modal--small {
+  z-index: 2;
 }
 
 .modal--full {
@@ -319,4 +324,71 @@ nav ul li:hover {
 }
 .portfolio__filter-nav .filter-link.active {
   color: #495fef;
+}
+
+.portfolio__grid-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3rem 1rem;
+  justify-content: center;
+  max-width: 87.5rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.portfolio__card {
+  position: relative;
+  margin: 0 1rem 1.85rem;
+  max-width: 15.9375rem;
+}
+.portfolio__card:hover .card__popup {
+  bottom: 1.25rem;
+  opacity: 1;
+}
+.portfolio__card img {
+  height: 15.9375rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.card__popup {
+  position: absolute;
+  bottom: 0;
+  left: 1.25rem;
+  right: 1.25rem;
+  transition: 0.4s;
+  z-index: 1;
+  padding: 1.25rem 1.875rem;
+  opacity: 0;
+}
+.card__popup:before {
+  position: absolute;
+  content: "";
+  background: var(--bg);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.9;
+  border-radius: 0.5rem;
+}
+.card__popup > div {
+  color: var(--color-text-opacity);
+  font-size: 0.8125rem;
+  line-height: 1.63;
+  letter-spacing: 0.0625rem;
+  padding-bottom: 0.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.card__popup > h3 {
+  pointer-events: none;
+  color: var(--color-headings);
+  font-size: 1.3125rem;
+  letter-spacing: -0.03125rem;
+  font-weight: 700;
+  margin-bottom: 0;
 }/*# sourceMappingURL=styles.css.map */

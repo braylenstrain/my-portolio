@@ -48,3 +48,74 @@
     }
   }
 }
+
+.portfolio__grid-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3rem 1rem;
+  justify-content: center;
+  max-width: rem(1400);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.portfolio__card {
+  position: relative;
+  margin: 0 1rem 1.85rem;
+  max-width: rem(255);
+
+  &:hover .card__popup {
+    bottom: rem(20);
+    opacity: 1;
+  }
+
+  img {
+    height: rem(255);
+    object-fit: cover;
+    border-radius: rem(8);
+  }
+}
+
+.card__popup {
+  position: absolute;
+  bottom: 0;
+  left: rem(20);
+  right: rem(20);
+  transition: 0.4s;
+  z-index: 1;
+  padding: 1.25rem 1.875rem;
+  opacity: 0;
+
+  &:before {
+    position: absolute;
+    content:"";
+    background: var(--bg);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0.9;
+    border-radius: rem(8);
+  }
+
+  > div {
+    color: var(--color-text-opacity);
+    font-size: 0.8125rem;
+    line-height: 1.63;
+    letter-spacing: rem(1);
+    padding-bottom: 0.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+
+  > h3 {
+    pointer-events: none;
+    color: var(--color-headings);
+    font-size: 1.3125rem;
+    letter-spacing: rem(-0.5);
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+}
