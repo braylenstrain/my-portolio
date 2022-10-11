@@ -167,6 +167,99 @@ img {
   transform: scaleX(-1);
 }
 
+.modal--full,
+.modal--small {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  transition: 0.3s ease-in;
+  background-color: var(--bg);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 2;
+}
+.modal--full.modal--visible,
+.modal--small.modal--visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal__header {
+  display: flex;
+  padding-bottom: 1rem;
+  justify-content: space-between;
+}
+.modal__header .fa-times {
+  font-size: 1.5rem;
+}
+.modal__header .fa-times:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.modal__body {
+  display: flex;
+}
+.modal__body .modal__img-wrapper--small {
+  max-width: 12.5rem;
+  margin-right: 0.75rem;
+}
+.modal__body .modal__img-wrapper--small img {
+  border-radius: 0.5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 12.5rem;
+}
+
+.modal__headshot {
+  width: 3.125rem;
+}
+
+.modal--small {
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.modal__dialog--small {
+  max-width: 50rem;
+  max-height: 80vh;
+  background: var(--bg-panel);
+  color: var(--color-text-base);
+  overflow: hidden;
+  padding: 1.25rem 1.85rem;
+  border-radius: 0.3125rem;
+  cursor: default;
+}
+.modal__dialog--small a {
+  color: #495fef;
+}
+
+[data-animation=zoomInOut].modal--full {
+  transform: scale(0.2);
+}
+
+[data-animation=slideInOutTop] .modal__dialog--small {
+  opacity: 0;
+  transition: all 0.4s;
+  transform: translateY(-100%);
+}
+
+[data-animation=slideInOutTop].modal--visible .modal__dialog--small {
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+
+[data-animation=zoomInOut].modal--full.modal--visible,
+[data-animation=slideInOutTop].modal--visible .modal__dialog--small {
+  transform: none;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -196,57 +289,6 @@ nav ul li:hover {
 
 [data-open=about] {
   cursor: pointer;
-}
-
-.modal--full,
-.modal--small {
-  z-index: 2;
-}
-
-.modal--full {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1rem;
-  transition: 0.3s ease-in;
-  background-color: var(--bg);
-  visibility: hidden;
-}
-
-.modal--visible {
-  visibility: visible;
-  opacity: 1;
-}
-
-.modal__header {
-  display: flex;
-  padding-bottom: 1rem;
-  justify-content: space-between;
-}
-.modal__header .fa-times {
-  font-size: 1.5rem;
-}
-.modal__header .fa-times:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-}
-
-.modal__body {
-  display: flex;
-}
-
-.modal__headshot {
-  width: 3.125rem;
-}
-
-[data-animation=zoomInOut].modal--full {
-  transform: scale(0.2);
-}
-
-[data-animation=zoomInOut].modal--full.modal--visible {
-  transform: none;
 }
 
 .hero__content {
@@ -298,7 +340,7 @@ nav ul li:hover {
 .portfolio__search-input {
   padding: 0.75rem 1.5rem;
   background-color: #f1f3f5;
-  border: 0.0625rem solid #f1f3f5;
+  border: 0.0625rem solid var(--color-text-base);
   border-radius: 50rem;
 }
 .portfolio__search-input:focus {
@@ -331,7 +373,7 @@ nav ul li:hover {
   flex-wrap: wrap;
   padding: 3rem 1rem;
   justify-content: center;
-  max-width: 87.5rem;
+  max-width: 1400px;
   width: 100%;
   margin: 0 auto;
 }
@@ -340,6 +382,7 @@ nav ul li:hover {
   position: relative;
   margin: 0 1rem 1.85rem;
   max-width: 15.9375rem;
+  cursor: pointer;
 }
 .portfolio__card:hover .card__popup {
   bottom: 1.25rem;

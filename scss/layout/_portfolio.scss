@@ -17,7 +17,7 @@
 .portfolio__search-input {
   padding: 0.75rem 1.5rem;
   background-color: #f1f3f5;
-  border: rem(1) solid #f1f3f5;
+  border: rem(1) solid var(--color-text-base);
   border-radius: 50rem;
 
   &:focus {
@@ -54,7 +54,7 @@
   flex-wrap: wrap;
   padding: 3rem 1rem;
   justify-content: center;
-  max-width: rem(1400);
+  max-width: 1400px;
   width: 100%;
   margin: 0 auto;
 }
@@ -63,6 +63,7 @@
   position: relative;
   margin: 0 1rem 1.85rem;
   max-width: rem(255);
+  cursor: pointer;
 
   &:hover .card__popup {
     bottom: rem(20);

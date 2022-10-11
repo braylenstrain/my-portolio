@@ -41,7 +41,7 @@
         <h1 class="title--lg">Welcome!</h2>
         <div class="sub-title">Click on the cards below to check out the projects that I've worked on.</div>
 
-        <span class="hero__button" data-open="About Me">Learn More About Me</span>
+        <span class="hero__button" data-open="about">Learn More About Me</span>
       </div>
     </section>
 
@@ -67,30 +67,38 @@
       </div>
     </section>
 
-    <!-- Modules -->
+    <!-- Modals -->
+    <!-- Full Modal -->
     <div id="about" class="modal--full" data-animation="zoomInOut">
-      <header class="modal__header">
-        <h3>ABOUT ME</h3>
-        <i class="fas fa-times" data-close></i>
-      </header>
+      <div class="container--fluid">
+        <header class="modal__header">
+          <h3>ABOUT ME</h3>
+          <i class="fas fa-times" data-close></i>
+        </header>
 
-      <div class="modal__body">
-        <div class="modal__headshot">
-          <img src="/images/croppedface.jpg" alt="Headshot of Braylen Strain">
-        </div>
+        <div class="modal__body">
+          <div class="modal__headshot">
+            <img src="/images/croppedface.jpg" alt="Headshot of Braylen Strain">
+          </div>
 
-        <div class="modal__text">
-          <h2>Braylen Strain</h2>
+          <div class="modal__text--full">
+            <h2>Braylen Strain</h2>
 
-          <p>A:SLDJK</p>
-          <p>:LSDJFK</p>
+            <p>A:SLDJK</p>
+            <p>:LSDJFK</p>
 
-          <div>
-            <div>Email Me:</div>
-            <a href="mailto:braylenstrain22@gmail.com">braylenstrain22@gmail.com</a>
+            <div>
+              <div>Email Me:</div>
+              <a href="mailto:braylenstrain22@gmail.com">braylenstrain22@gmail.com</a>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Small Modal -->
+    <div id="portfolioModalsWrapper">
+      <!-- Uses JavaScript to create correct modal and add to DOM when portfolio card is clicked -->
     </div>
 
     <!-- Theme Toggle -->

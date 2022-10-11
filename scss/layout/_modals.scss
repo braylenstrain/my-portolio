@@ -1,11 +1,8 @@
 @use '../utils' as *;
 
+
 .modal--full,
 .modal--small {
-  z-index: 2;
-}
-
-.modal--full {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -15,11 +12,13 @@
   transition: 0.3s ease-in;
   background-color: var(--bg);
   visibility: hidden;
-}
+  opacity: 0;
+  z-index: 2;
 
-.modal--visible {
-  visibility: visible;
-  opacity: 1;
+  &.modal--visible {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 .modal__header {
@@ -39,16 +38,67 @@
 
 .modal__body {
   display: flex;
+
+  .modal__img-wrapper--small {
+    max-width: rem(200);
+    margin-right: 0.75rem;
+
+    img {
+      border-radius: 0.5rem;
+      object-fit: cover;
+      height: rem(200);
+    }
+  }
 }
 
 .modal__headshot {
   width: rem(50);
 }
 
+.modal--small {
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.modal__dialog--small {
+  max-width: rem(800);
+  max-height: 80vh;
+  background: var(--bg-panel);
+  color: var(--color-text-base);
+  overflow: hidden;
+  padding: 1.25rem 1.85rem;
+  border-radius: rem(5);
+  cursor: default;
+
+  a {
+    color: #495fef;
+  }
+}
+
 [data-animation=zoomInOut].modal--full {
   transform: scale(0.2);
 }
 
-[data-animation=zoomInOut].modal--full.modal--visible {
+[data-animation=slideInOutTop] .modal__dialog--small {
+    opacity: 0;
+    transition: all 0.4s;
+    transform: translateY(-100%);
+  }
+
+[data-animation=slideInOutTop].modal--visible .modal__dialog--small {
+    opacity: 1;
+    transition-delay: 0.2s;
+  }
+
+[data-animation=zoomInOut].modal--full.modal--visible,
+[data-animation=slideInOutTop].modal--visible .modal__dialog--small {
   transform: none;
 }
+
+
+
+
+

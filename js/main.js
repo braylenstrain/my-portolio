@@ -10,17 +10,11 @@ const active = 'active';
 const modalOpen = '[data-open]';
 const modalClose = '[data-close]';
 const modalVisible = 'modal--visible';
+const modalSmallVisible = '.modal--small.modal--visible';
 const root = document.documentElement;
 const dataFilter = '[data-filter]';
 const filterLink = 'filter-link';
 const portfolioData = '[data-card]';
-const cardWrapper = 'cardWrapper';
-const htmlCss = 'html/css';
-const javascript = 'javascript';
-const react = 'react';
-const java = 'java';
-const search = 'search';
-const all = 'all';
 
 
 
@@ -86,65 +80,89 @@ toggleTheme.addEventListener('click', function() {
 
 /* Portfolio */
 const filterLinksList = document.querySelectorAll(dataFilter);
-const portfolioWrapper = document.getElementById(cardWrapper);
-const searchBox = document.getElementById(search);
+const portfolioWrapper = document.getElementById('cardWrapper');
+const searchBox = document.getElementById('search');
 
-//Array of card data
+//Array of card and small modal data
 const cardArr = [
   {
     filterType: "html/css",
     imgSrc: "/images/croppedface.jpg",
     imgAlt: "My cropped face",
     href:"https://www.google.com",
-    popupH3: "No Seriously"
+    popupH3: "No Seriously",
+    modalId: "card1",
+    modalTitle: "",
+    modalText: "",
+    modalLink: ""
   },
   {
     filterType: "javascript",
     imgSrc: "/images/2022_05_01_10n_Kleki.png",
     imgAlt: "Stickman",
     href:"https://www.facebook.com",
-    popupH3: "Seriously"
+    popupH3: "Seriously",
+    modalId: "card2",
+    modalTitle: "",
+    modalText: "",
+    modalLink: ""
   },
   {
     filterType: "html/css",
     imgSrc: "images/2022_05_01_111_Kleki.png",
     imgAlt: "Ninja smiley",
     href:"https://www.linkedin.com",
-    popupH3: "WAAAAHHH"
+    popupH3: "WAAAAHHH",
+    modalId: "card3",
+    modalTitle: "",
+    modalText: "",
+    modalLink: ""
   },
   {
     filterType: "javascript",
     imgSrc: "images/2022_05_01_115_Kleki.png",
     imgAlt: "Normal Smiley",
     href:"https://www.github.com",
-    popupH3: "Goodbye"
+    popupH3: "Goodbye",
+    modalId: "card4",
+    modalTitle: "",
+    modalText: "",
+    modalLink: ""
   },
   {
     filterType: "react",
     imgSrc: "/images/croppedface.jpg",
     imgAlt: "My face again",
     href:"https://www.twitter.com",
-    popupH3: "Another cropped face"
+    popupH3: "Another cropped face",
+    modalId: "card5",
+    modalTitle: "",
+    modalText: "",
+    modalLink: ""
   },
   {
     filterType: "java",
     imgSrc: "images/20220313_170715.jpg",
     imgAlt: "My car",
     href:"https://www.instagram.com",
-    popupH3: "My Car"
+    popupH3: "My Car",
+    modalId: "card6",
+    modalTitle: "asdfasd",
+    modalText: "asdfsadf",
+    modalLink: "https://www.google.com"
   }
 ]
 
 //input card elements into html document
-for (const {filterType, imgSrc, imgAlt, href, popupH3} of cardArr) {
+for (const {filterType, imgSrc, imgAlt, href, popupH3, modalId} of cardArr) {
   portfolioWrapper.innerHTML +=
-  `<div class="portfolio__card" data-card="${filterType}">
+  `<div class="portfolio__card" data-card="${filterType}" data-open="${modalId}">
     <div class="card__body">
       <img src="${imgSrc}" alt="${imgAlt}">
-      <a class="card__popup" href="${href}" target="_blank">
+      <div class="card__popup">
         <div>${filterType}</div>
         <h3>${popupH3}</h3>
-      </a>
+      </div>
     </div>
   </div>`
 }
@@ -159,7 +177,7 @@ for (const link of filterLinksList) {
 
     const filter = link.dataset.filter;
     portfolioItems.forEach(card => {
-      if (filter === all) {
+      if (filter === 'all') {
         card.style.display = 'block';
       } else if (card.dataset.card === filter) {
         card.style.display = 'block';
@@ -176,7 +194,6 @@ searchBox.addEventListener('keyup', e => {
 
   //Set 'all' as active filterLink
   if (!filterLinksList[0].className.includes(active)) {
-    console.log("heyo");
     setActive(filterLinksList[0], filterLink);
   }
 
@@ -192,22 +209,81 @@ searchBox.addEventListener('keyup', e => {
 
 
 
-/* Open and Close Modals */
+/* Modals */
 const allModalOpen = document.querySelectorAll(modalOpen);
 const allModalClose = document.querySelectorAll(modalClose);
+const portfolioModalsWrapper = document.getElementById('portfolioModalsWrapper');
 
-//Add click event to open modals
+//Add click event for opening modals
 for (const elm of allModalOpen) {
   elm.addEventListener('click', function() {
     const modalId = this.dataset.open;
-    document.getElementById(modalId).classList.add(modalVisible);
+
+    //Add portfolio modal if doesn't exist
+    if (document.getElementById(modalId) === null) {
+      for (const i of cardArr) {
+        if (i.modalId === modalId) {
+          addModal(i);
+          break;
+        }
+      }
+    }
+
+    setTimeout(() => {
+//Make modal visible
+document.getElementById(modalId).classList.add(modalVisible);
+    }, 10)
+
   })
 }
 
-//Add click event to close modals
+//Add click event to close modals with X button
 for (const elm of allModalClose) {
   elm.addEventListener('click', function() {
-    this.parentElement.parentElement.classList.remove(modalVisible);
+    this.parentElement.parentElement.parentElement.classList.remove(modalVisible);
+  })
+}
+
+//Add click event to close small modals by clicking background
+document.addEventListener('click', e => {
+  if (e.target === document.querySelector(modalSmallVisible)) {
+    document.querySelector(modalSmallVisible).classList.remove(modalVisible);
+  }
+})
+
+//Allow escape key to exit small modal
+document.addEventListener('keyup', e => {
+  if (e.key === 'Escape' && document.querySelector(modalSmallVisible) !== null) {
+    document.querySelector(modalSmallVisible).classList.remove(modalVisible);
+  }
+})
+
+//Add portfolio modal based on parameter data
+function addModal({modalId, popupH3, imgSrc, imgAlt, modalText, modalTitle, modalLink}) {
+  portfolioModalsWrapper.insertAdjacentHTML('beforeend',
+  `<div id="${modalId}" class="modal--small" data-animation="slideInOutTop">
+    <div class="modal__dialog--small">
+      <header class="modal__header">
+        <h3>${popupH3}</h3>
+        <i class="fas fa-times" data-close></i>
+      </header>
+
+      <div class="modal__body">
+        <div class="modal__img-wrapper--small">
+          <img src="${imgSrc}" alt="${imgAlt}">
+        </div>
+
+        <div class="modal__text--small">
+          <p><strong>${modalTitle}</strong></p>
+          <p>${modalText}</p>
+          <a href="${modalLink}" target="_blank">Click here to view the project: ${modalLink}</a>
+        </div>
+      </div>
+    </div>
+  </div>`)
+
+  document.getElementById(modalId).querySelector('[data-close]').addEventListener('click', function() {
+    this.parentElement.parentElement.parentElement.classList.remove(modalVisible);
   })
 }
 
